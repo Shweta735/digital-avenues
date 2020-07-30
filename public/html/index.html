@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/manage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../js/function.js"></script>
+</head>
+<script>
+  const table = document.getElementById('to_do');
+  if(table!=null){
+    for(let i=0;i<table.rows.length;i++){
+      for(let j=0;j<table.rows[i].cells.length;j++){
+        table.rows[i].cells[i].onclick = function(){
+          console.log(this.innerHTML)
+        }
+      }
+    }
+  }
+</script>
+<style>
+	body{
+		background-color: #fff;
+        font-family: sans-serif;
+     }
+	h1 {
+        font-size: 35px;
+        font-weight: 400;
+        text-align: center;
+        }
+    h3{
+        font-size: 27px;
+       	font-weight: 200;
+       	text-align: center;
+       }
+     form{
+     	text-align: center;
+     }
+     input{
+     	height : 30px;
+     }
+     
+</style>
+<body align="center" onload="getDaysAndDates()">
+  <div class="container-fluid">
+	<br/>
+	<br/>
+	<div style="width:1500px" class="container">
+  <div class="center">
+  <h1>Awesome To Do App</h1>
+  <table id="to_do">
+    <tr>
+      <th id="th1">Sun</th>
+      <th id="th2">Mon</th>
+      <th id="th3">Tues</th>
+      <th id="th4">Wed</th>
+      <th id="th5">Thurs</th>
+      <th id="th6">Fri</th>
+      <th id="th7">Sat</th>
+    </tr>
+    <tr>
+      <td id="td1"></td>
+      <td id="td2"></td>
+      <td id="td3"></td>
+      <td id="td4"></td>
+      <td id="td5"></td>
+      <td id="td6"></td>
+      <td id="td7"></td>
+    </tr>
+    <tr>
+      <td><button class="btn btn-primary" id="button0" style="display: none" onclick="addItem()">Add Item</button></td>
+      <td><button class="btn btn-primary" id="button1" style="display: none" onclick="addItem()">Add Item</button></td>
+      <td><button class="btn btn-primary" id="button2" style="display: none" onclick="addItem()">Add Item</button></td>
+      <td><button class="btn btn-primary" id="button3" style="display: none" onclick="addItem()">Add Item</button></td>
+      <td><button class="btn btn-primary" id="button4" style="display: none" onclick="addItem()">Add Item</button></td>
+      <td><button class="btn btn-primary" id="button5" style="display: none" onclick="addItem()">Add Item</button></td>
+      <td><button class="btn btn-primary" id="button6" style="display: none" onclick="addItem()">Add Item</button></td>
+    </tr>
+  </table>
+  <div id="response"></div>
+  <div id="add_item" class="content modal_box" style="display: none">
+    <div class="adding_box"style="width:20%">
+      <br>
+      <div>
+        <form data-parsley-validate class="form-horizontal form-label-left">
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="item">Title</label>
+              <div class=" col-md-6 col-sm-6 col-xs-12">
+                <input class="form-control col-xs-12" id="item" type="text">
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="date">Date</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input class="form-control col-xs-12" id="date" type="date">
+            </div>
+          </div>
+          <div class="form-group">
+          <div class=" col-xs-12 col-md-offset-3">
+            <button onclick="add(event)" type="submit" id="Submit" class="btn btn-primary">Add</button>
+            <button onclick="document.getElementById('add_item').style.display='none'" type="submit" id="Submit" class="btn btn-primary">Cancel</button>
+          </div>
+          </div>
+          <div id="message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+	<br/>
+  </div>
+</body>
+</html>
